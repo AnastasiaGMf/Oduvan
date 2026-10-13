@@ -1,0 +1,37 @@
+t=input(" ")
+result={}
+for key in t:
+    if key in result:
+        result[key]+=1
+    else:
+        result[key]=1
+print(result)
+
+a=[{'b': 89, 'a': '', 'c': []}]
+result=[]
+for i in a:
+    if isinstance(i, dict):
+        ndict={}
+        for key, value in i.items():
+            if value or value==0:
+                ndict[key]=value
+        if ndict:
+            result.append(ndict)
+a=result
+print(a)
+
+import time
+def timer(f):
+    def wrapper(x):
+        start=time.time()
+        res=f(x)
+        finish=time.time()
+        print("",finish-start)
+        return res
+    return wrapper
+@timer
+def hello(name):
+    time.sleep(1)
+    print("Привет",name)
+ans=hello("Настя")
+print(ans) 
